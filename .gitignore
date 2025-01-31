@@ -1,0 +1,5 @@
+devops/.terraform.lock.hcl
+devops/.terraform/
+devops/terraform.tfstate
+devops/terraform.tfstate.backup
+

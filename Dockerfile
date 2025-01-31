@@ -1,21 +1,19 @@
-FROM ubuntu:latest
+# Use a lightweight Node.js image
+FROM node:18-alpine
 
-MAINTAINER ybmsr <ybmadhu404@gmail.com>
-
+# Set the working directory
 WORKDIR /usr/apps/hello-docker/
 
-RUN apt-get -y update
+# Copy application files (including the CSS directory and HTML file)
+COPY index.html .
+COPY css/style.css css/style.css
 
-RUN apt-get install -y nodejs
-
-RUN apt-get install -y npm
-
-#RUN ln -s /usr/bin/nodejs /usr/bin/node........;;;;;
-
+# Install http-server globally
 RUN npm install -g http-server
 
-ADD . /usr/apps/hello-docker/
+# Expose port 8080 for the application
+EXPOSE 8080
 
-ADD index.html /usr/apps/hello-docker/index.html
+# Start the http-server on port 8080
+CMD ["http-server", "-p", "8080", "-s"]
 
-CMD ["http-server", "-s"]
