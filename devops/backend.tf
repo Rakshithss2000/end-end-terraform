@@ -1,7 +1,7 @@
 
 terraform {
   backend "s3" {
-    bucket = "rockstar123"
+    bucket = "rakshith088"
     key    = "terraform.tfstate"
     region = "ap-south-1"
     encrypt = true
